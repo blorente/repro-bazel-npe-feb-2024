@@ -1,6 +1,7 @@
+load("@constants//:constants.bzl", "cats")
 genrule(
   name = "test",
   srcs = [],
   outs = ['test.txt'],
-  cmd = "echo 'hi' > $(OUTS)",
+  cmd = "echo '{}' > $(OUTS)".format(cats),
 )

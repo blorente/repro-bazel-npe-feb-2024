@@ -1,1 +1,13 @@
-common --noenable_bzlmod
+common --enable_bzlmod=false
+build --enable_bzlmod=false
+
+# We need to hide these packages from Bazel, so that globs can expand into them.
+# Sadly we can't just use .bazelignore, because we need to the globs to actually expand.
+# This basicaly just ignores the fact that there are BUILD.bazel files in those packages.
+#
+# To update these lines, execute
+# `bazel run @rules_bazel_integration_test//tools:update_deleted_packages`
+build --deleted_packages=constants
+query --deleted_packages=constants
+
+
