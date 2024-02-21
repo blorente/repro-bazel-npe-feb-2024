@@ -1,0 +1,6 @@
+genrule(
+  name = "test",
+  srcs = [],
+  outs = ['test.txt'],
+  cmd = "echo 'hi' > $(OUTS)",
+)
